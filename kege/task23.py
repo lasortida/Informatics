@@ -1,8 +1,8 @@
-def calculate(start, end):
-    if start > end or start == 30:
+def executor(start, end):
+    if start > end or start == 8:
         return 0
     if start == end:
         return 1
-    return calculate(start + 1, end) + calculate(start * 3, end) + calculate(start * 4, end)
+    return executor(start + 2, end) + executor(start * 3, end)
 
-print(calculate(2, 15) * calculate(15, 100))
+print(executor(2, 50) * executor(50, 60))

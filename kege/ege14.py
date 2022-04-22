@@ -22,20 +22,14 @@ def toTen(a, ns):
     return result
 
 
-first = 81 ** 820 - 9 ** 761 - 3 ** 2022 + 14
-second = 5 * 7 ** 153 + 4 * 49 ** 85 - 3 * 7 ** 15
-third = 5 * 216 ** 1156 - 4 * 36 ** 1147 + 6 ** 1153 - 875
+a = 6 * 343 ** 1156 - 5 * 49 ** 1147 + 4 * 7 ** 1153 - 875
+row = toAnother(a, 7)
 
-print("2676: ", toAnother(first, 9).count("8"))
+summ = 0
 
-for i in range(1000):
-    if toTen("4646", i) + toTen("387", i + 2) == toTen("3746", i + 1):
-        print("2523: ", i)
+c = int(row)
+while c != 0:
+    summ += c % 10
+    c //= 10
 
-count = 0
-for i in toAnother(second, 7):
-    if int(i) % 2 == 0:
-        count += 1
-
-print("1369: ", count)
-print("1222: ", toAnother(third, 6).count("5") - toAnother(third, 6).count("0"))
+print(summ)

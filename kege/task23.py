@@ -1,13 +1,8 @@
-def executor(start, end):
-    if start > end:
+def calculate(start, end):
+    if start > end or start == 30:
         return 0
     if start == end:
         return 1
-    result = executor(start + 1, end) + executor(start * 2, end)
-    if (start % 2 == 0):
-        result += executor(start + 1, end)
-    else:
-        result += executor(start + 2, end)
-    return result
+    return calculate(start + 1, end) + calculate(start * 3, end) + calculate(start * 4, end)
 
-print(executor(3, 9) * executor(9, 17) * executor(17, 25))
+print(calculate(2, 15) * calculate(15, 100))

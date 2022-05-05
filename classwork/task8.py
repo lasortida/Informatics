@@ -37,27 +37,27 @@
 # print(executor(2, 9) * executor(9, 19))
 
 
-file = open("17.txt")
-array = file.readlines()
-summ_sr = 0
-count_sr = 0
-for i in range(len(array)):
-    if int(array[i]) % 2 != 0:
-        summ_sr += int(array[i])
-        count_sr += 1
-
-sr = summ_sr / count_sr
-
-count = 0
-max_sum = 0
-for i in range(1, len(array)):
-    first_el = int(array[i - 1])
-    second_el = int(array[i])
-    if (first_el % 5 == 0 or second_el % 5 == 0) and (first_el < sr or second_el < sr):
-        count += 1
-        if (first_el + second_el) > max_sum:
-            max_sum = first_el + second_el
-
-print(count)
-print(max_sum)
-file.close()
+# file = open("17.txt")
+# array = file.readlines()
+# summ_sr = 0
+# count_sr = 0
+# for i in range(len(array)):
+#     if int(array[i]) % 2 != 0:
+#         summ_sr += int(array[i])
+#         count_sr += 1
+#
+# sr = summ_sr / count_sr
+#
+# count = 0
+# max_sum = 0
+# for i in range(1, len(array)):
+#     first_el = int(array[i - 1])
+#     second_el = int(array[i])
+#     if (first_el % 5 == 0 or second_el % 5 == 0) and (first_el < sr or second_el < sr):
+#         count += 1
+#         if (first_el + second_el) > max_sum:
+#             max_sum = first_el + second_el
+#
+# print(count)
+# print(max_sum)
+# file.close()

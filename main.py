@@ -1,72 +1,24 @@
-file = open("input.txt", "r")
-output = open("output.txt", "w")
-stack = []
-error = False
-lst = file.read().split("\n")
-lst.pop()
-for row in lst:
-    if row == "DROP":
-        if len(stack) != 0:
-            stack.pop()
-        else:
-            error = True
-            break
-    elif row == "SWAP":
-        if len(stack) >= 2:
-            first = stack.pop()
-            second = stack.pop()
-            stack.append(first)
-            stack.append(second)
-        else:
-            error = True
-            break
-    elif row == "DUP":
-        if len(stack) != 0:
-            top = stack.pop()
-            stack.append(top)
-            stack.append(top)
-        else:
-            error = True
-            break
-    elif row == "OVER":
-        if len(stack) >= 2:
-            const = stack.pop()
-            copy = stack.pop()
-            stack.append(copy)
-            stack.append(const)
-            stack.append(copy)
-        else:
-            error = True
-            break
-    elif row in "+-*/":
-        if len(stack) >= 2:
-            second = stack.pop()
-            first = stack.pop()
-            if row == "+":
-                result = first + second
-            if row == "-":
-                result = first - second
-            if row == "*":
-                result = first * second
-            if row == "/":
-                result = first // second
-            stack.append(result)
-        else:
-            error = True
-            break
-    else:
-        stack.append(int(row))
+import math
 
-if error:
-    output.write("ERROR")
-elif len(stack) == 0:
-    output.write("EMPTY")
-else:
-    result_stack = []
-    while len(stack) != 0:
-        result_stack.append(stack.pop())
-    while len(result_stack) != 0:
-        if len(result_stack) == 1:
-            output.write(str(result_stack.pop()))
-        else:
-            output.write(str(result_stack.pop()) + " ")
+
+def isRight(a):
+    countOfDel = 0
+    dels = []
+    start = 2
+    while start <= math.sqrt(a):
+        if (a % start == 0):
+            countOfDel += 2
+            dels.append(start)
+            dels.append(a / start)
+        if (countOfDel > 2):
+            break
+        start += 1
+    return dels
+
+for i in range(174457, 174506):
+    array = isRight(i)
+    if len(array) == 2:
+        print(array[0])
+        print(array[1])
+        print()
+
